@@ -16,6 +16,11 @@ int main()
 	cout<<"Enter meal amount: ";
 	cin>>meal_amount;
 	tax_amount = get_sales_tax_amount(meal_amount);
+	/*
+	floor function returns largest integer that's less than the argument.
+	Using the floor function below, we obtain the quantity rounded to the nearest
+	hundredth
+	*/
 	tax_amount = floor(tax_amount / 0.01 + 0.5) * 0.01;
 	cout<<"Enter tip rate: ";
 	cin>>tip_rate;
