@@ -3,4 +3,4 @@
 //Write prototype for function that accepts a num and returns a string
 std::string menu(int num);
 
-
+std::string menu2(char option);
