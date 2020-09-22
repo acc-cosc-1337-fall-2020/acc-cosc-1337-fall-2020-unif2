@@ -2,6 +2,7 @@
 #include "catch.hpp"
 #include "casting.h"
 #include "../../02_module/01_expressions/expressions.h"
+
 TEST_CASE("Verify Test Configuration", "verification") 
 {
 	REQUIRE(true == true);
