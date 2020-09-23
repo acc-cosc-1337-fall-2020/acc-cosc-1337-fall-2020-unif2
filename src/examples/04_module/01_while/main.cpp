@@ -4,15 +4,16 @@
 using std::cout, std::cin;
 int main() 
 {
-	int number;
+	int num;
 	char choice = 'y';
 
-	while(choice == 'y')
+	while(choice == 'y' || choice == 'Y')
 	{	
-		cout<<"Enter a number: ";
-		cin>>number;
-		int sum = sum_of_squares(number);
+		cout<<"\nEnter a number: ";
+		cin>>num;
+		int sum = sum_of_squares(num);
 		cout<<"Sum is: "<<sum<<"\n";
+		cout<<"main num "<<num<<"\n";
 		cout<<"Enter y to continue: ";
 		cin>>choice;
 	}
