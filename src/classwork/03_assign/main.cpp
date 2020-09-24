@@ -7,7 +7,7 @@ using std::cout, std::cin;
 
 int main() 
 {
-	double num;
+	auto num{0.0};
 	cout<<"Enter a numerical grade: ";
 	cin>>num;
 	if(num >= 0 && num <= 100)
