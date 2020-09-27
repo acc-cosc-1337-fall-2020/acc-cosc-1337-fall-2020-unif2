@@ -23,3 +23,11 @@ TEST_CASE("Test get area with default parameters")
 	REQUIRE(get_area() == 200); //default values are passed
 	REQUIRE(get_area(5) == 50); //5 is the argument for the 1st variable and the 2nd variable is the default value
 }
+
+TEST_CASE("Test value and reference parameters")
+{
+	int num1=0, num2=0;
+	pass_by_val_and_ref(num1,num2);
+	REQUIRE(num1 == 0);
+	REQUIRE(num2 == 50);
+}
