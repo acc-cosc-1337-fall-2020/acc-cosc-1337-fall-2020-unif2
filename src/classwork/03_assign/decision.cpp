@@ -60,6 +60,13 @@ string get_letter_grade_using_switch(int grade)
             letter_grade = "D";
             break;
         }
+        case 5:
+		case 4:
+		case 3:
+		case 2:
+		case 1:
+		case 0:			
+			return "F";        
         default:
         {
             letter_grade = "F";
