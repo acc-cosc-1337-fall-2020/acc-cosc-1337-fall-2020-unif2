@@ -1,5 +1,5 @@
 #include "value_ref.h"
-
+#include<iostream>
 int get_area(int height, int width)
 {
     return height*width;

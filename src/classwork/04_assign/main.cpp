@@ -16,12 +16,12 @@ int main()
 	{
 		auto number{1.0};
 		int prod;
-		cout<<"Enter an integer between 1 and 50: ";
+		cout<<"Enter an integer between 1 and 10: ";
 		cin>>number;
-		while (number < 1 || number > 50)
+		while (number < 1 || number > 10)
 		{
-			cout<<"\nThe integer must be between 1 and 50.  Try again.\n";
-			cout<<"Enter an integer between 1 and 50: ";
+			cout<<"\nThe integer must be between 1 and 10.  Try again.\n";
+			cout<<"Enter an integer between 1 and 10: ";
 			cin>>number;
 		}
 		int num = number;
