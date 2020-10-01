@@ -4,9 +4,9 @@ using std::cout; using std::cin;
 
 int main() 
 {	
-	sample_static_var()
-	sample_static_var()
-	sample_static_var()
+	sample_static_var(); // value is 1
+	sample_static_var(); // value is 2
+	sample_static_var(); // value is 3
 	int num = 5;
 	
 	cout<<"Value of num: "<<num<<"\n";

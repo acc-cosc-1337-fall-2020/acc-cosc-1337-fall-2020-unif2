@@ -42,7 +42,8 @@ void pass_by_const_ref(const int& num3) //for when you don't trust anyone (const
 
 void sample_static_var()
 {
-    static int cnt = 0; //cnt exists as long as our program runs
+    static int cnt = 0; //cnt exists as long as our program runs...NOT function.
+    // stored in static memory, not the stack.
     cnt++;
     std::cout<<cnt<<"\n";
 
