@@ -14,10 +14,10 @@ The function assigns 20 to num1 and 50 to num2
 
 @return does not return a value
 */
-void pass_by_val_and_ref(int num1, int& num2)
+void pass_by_val_and_ref(int num1, int& num2) //num1 is a value parameter, num2 is a reference parameter
 {
-    //num1 = 20;
-    //num2 = 50;
+    num1 = 20;
+    num2 = 50;
     std::cout<<num1<<"\n";
 
 }
@@ -31,14 +31,18 @@ Try to assign a value to num1, generates error.
 
 @return does not return a value
 */
-void pass_by_const_ref(const int& num) //for when you don't trust anyone (const is read only permissions and int& is so we don't make copies of the data to manage memory)
+void pass_by_const_ref(const int& num3) //for when you don't trust anyone (const is read only permissions and int& is so we don't make copies of the data to manage memory)
 {
+    // it will point to an existing variable, but it will not change it (it has read-only
+    // access)
     //num = 50; we can't modify num due to the const keyword
+    //can only display it or use it for some calculation
+
 }
 
 void sample_static_var()
 {
-    static int cnt = 0;
+    static int cnt = 0; //cnt exists as long as our program runs
     cnt++;
     std::cout<<cnt<<"\n";
 

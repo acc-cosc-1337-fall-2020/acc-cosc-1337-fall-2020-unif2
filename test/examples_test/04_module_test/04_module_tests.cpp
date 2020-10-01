@@ -20,6 +20,7 @@ TEST_CASE("Test sum numbers function")
 
 TEST_CASE("Test get area with default parameters")
 {
+	REQUIRE(get_area(5,5) == 25);
 	REQUIRE(get_area() == 200); //default values are passed
 	REQUIRE(get_area(5) == 50); //5 is the argument for the 1st variable and the 2nd variable is the default value
 }
