@@ -48,3 +48,8 @@ void sample_static_var()
     std::cout<<cnt<<"\n";
 
 }
+
+void pass_by_val_and_ref(int num1)
+{
+    num1 = 20;
+}

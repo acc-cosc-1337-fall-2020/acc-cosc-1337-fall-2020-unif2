@@ -7,6 +7,10 @@ int main()
 	sample_static_var(); // value is 1
 	sample_static_var(); // value is 2
 	sample_static_var(); // value is 3
+
+	pass_by_val_and_ref(5);
+	int num1 = 5, num2 = 10;
+	pass_by_val_and_ref(num1, num2);
 	int num = 5;
 	
 	cout<<"Value of num: "<<num<<"\n";
