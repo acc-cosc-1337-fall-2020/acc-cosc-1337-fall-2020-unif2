@@ -8,8 +8,8 @@ int main()
 	string name = "john";
 	string empty_string();
 	string name1("copy constructor");
-	string name2(name1, 3, 5);
-	string name3("Another name", 10);
+	string name2(name1, 3, 5); 
+	string name3("I am too long for the buffer", 8);
 	string repeating(10, 'x');
 
 	cout<<name<<"\n";
