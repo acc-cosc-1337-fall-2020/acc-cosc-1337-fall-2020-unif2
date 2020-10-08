@@ -12,9 +12,16 @@ int main()
 	cout<<"Max size of nums: "<<nums.max_size()<<"\n";
 	nums.push_back(15);
 	cout<<"Capacity of nums: "<<nums.capacity()<<"\n";
+	cout<<nums[3]<<"\n";
+
+	for(std::size_t i=0; i < nums.size(); ++i)
+	{
+		cout<<nums[i]<<"\n";
+	}
 
 	vector<int> nums2(10, 5);
 
+	cout<<"for ranged\n";
 	for(auto n: nums2)
 	{
 		cout<<n<<"\n";
