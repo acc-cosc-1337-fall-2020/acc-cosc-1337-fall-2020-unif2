@@ -28,7 +28,7 @@ accepts a string parameter and returns a string reversed.
 string get_reverse_string(string dna)
 {
     string reverse("");
-    for(int i = dna.size() - 1; i >= 0; i--)
+    for(int i = dna.size() - 1; i >= 0; --i)
     {
         reverse.push_back(dna[i]);
     }
