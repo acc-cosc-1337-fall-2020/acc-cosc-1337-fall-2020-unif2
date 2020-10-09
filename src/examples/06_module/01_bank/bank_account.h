@@ -7,6 +7,7 @@ public://access specifier
     // need to be changed, therefore put const there to protect the balance data.
     //BankAccount(){}; //default constructor
     BankAccount() : BankAccount(0)/*Delegating constructor*/ {/*empty code block*/}//new accounts....constructor overload example
+    //Code for the following constructor will be in the .cpp file at the top
     BankAccount(int b);// : balance(b){/*empty constructor code block*/}
     int get_balance()const{return balance;} //inline function //const so that nobody can modify balance in the function code
     void deposit(int amount);
