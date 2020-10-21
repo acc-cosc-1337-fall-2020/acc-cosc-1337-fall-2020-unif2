@@ -8,9 +8,9 @@ TEST_CASE("Verify Test Configuration", "verification") {
 
 TEST_CASE("Test Bank account initial balance")
 {
-	BankAccount account(500);
+	BankAccount account(100);
 
-	REQUIRE(account.get_balance() == 500);
+	REQUIRE(account.get_balance() == 100);
 }
 
 TEST_CASE("Test bank account deposit")

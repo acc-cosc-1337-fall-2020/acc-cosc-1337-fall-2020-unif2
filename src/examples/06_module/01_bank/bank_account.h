@@ -1,4 +1,5 @@
 //bank_account.h
+#include<iostream>
 #ifndef BRANCH_BANK_H
 #define BRANCH_BANK_H
 
@@ -36,6 +37,9 @@ public://access specifier
     friend void BranchBank::update_balance(int b);
     //in the book there is void set_deposit(int amount);//setter and getter methods
     static int get_bank_balance(){return bank_balance;}
+    friend std::ostream& operator<<(std::ostream& out, const BankAccount& a);
+    friend std::istream& operator>>(std::istream& in, BankAccount& a);
+    friend BankAccount operator+(const BankAccount& a1, const BankAccount& a2);
 private://access specifier
     int balance{0};//class member
     int customer_no;
@@ -45,5 +49,4 @@ private://access specifier
 #endif //header guards
 //THESE FUNCTIONS DON'T BELONG TO THE BANKACCOUNT CLASS
 void display_bank_account_data(BankAccount& b);//free function
-
 BankAccount get_account();//free function that returns a BankAccount datatype
