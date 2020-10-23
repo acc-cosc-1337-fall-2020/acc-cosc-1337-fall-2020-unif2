@@ -1,5 +1,7 @@
 #include<iostream>
 #include "atm.h"
+#include "checking_account.h"
+#include "savings_accoung.h"
 #include "bank_account.h"
 #include<stdlib.h>
 #include<time.h>
@@ -9,6 +11,11 @@ enum class BANK_OPTIONS{DEPOSIT = 1, WITHDRAW = 2, DISPLAY = 3};
 
 int main()
 {
+	CheckingAccount ca(1000);
+	cout<<ca.get_balance()<<"\n";
+
+	SavingsAccount sa(500);
+	cout<<sa.get_balance()<<"\n";
 	srand(time(NULL));//generate a random number every time our program runs
 	//BankAccount account(100), account1(500);
 	//BankAccount account2 = account + account1;
@@ -17,7 +24,6 @@ int main()
 
 	//cin>>account;
 	//cout<<account;
-
 	int choice;
 	char cont;
 
