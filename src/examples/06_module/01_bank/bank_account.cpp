@@ -56,7 +56,7 @@ BankAccount operator+(const BankAccount& a1, const BankAccount& a2)
     BankAccount account(a1.balance + a2.balance);
     return account;
 }
-//FREE FUNCTIONS-DO NOT BELONG OT THE BANKACCOUNT CLASS
+//FREE FUNCTIONS-DO NOT BELONG TO THE BANKACCOUNT CLASS
 void display_bank_account_data(BankAccount& b)
 {   
     b.deposit(50);//modifies the original b, so if you run this function in main, b's balance
