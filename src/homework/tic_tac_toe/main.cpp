@@ -20,18 +20,19 @@ cout<<"\nHere is the current board state: \n\n";
 game.display_board();
 
 game.start_game(player);
-int position;
+double pos;
 while(!game.game_over())
 {
 	cout<<"\n\nPlayer "<<game.get_player()<<", it's your turn.\n";
 	cout<<"Choose your position (integer between 1 and 9) and DO NOT pick one that's already being occupied! ";
-	cin>>position;
-	while(position < 1 || position > 9)
+	cin>>pos;
+	while(pos < 1 || pos > 9)
 	{
 		cout<<"\nInvalid entry! Position must be an integer between 1 and 9 and not already occupied.\n";
 		cout<<"Choose your position: ";
-		cin>>position;
+		cin>>pos;
 	}
+	int position = pos;
 	game.mark_board(position);
 	cout<<"\nHere is the current board state:\n\n";
 	game.display_board();
