@@ -36,13 +36,10 @@ while(!game.game_over())
 	game.mark_board(position);
 	cout<<"\nHere is the current board state:\n\n";
 	game.display_board();
-	if(game.game_over())
-	{
-		cout<<"\nHere is the final board state. Figure out who won!  Thanks for playing!\n\n";
-		game.display_board();
-		cout<<"\n";
-	}
 }
+cout<<"\n\nHere is the final board state. Figure out who won!  Thanks for playing!\n\n";
+game.display_board();
+cout<<"\n";
 
 return 0;
 }
