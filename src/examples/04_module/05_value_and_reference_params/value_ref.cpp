@@ -53,3 +53,14 @@ void pass_by_val_and_ref(int num1)
 {
     num1 = 20;
 }
+
+void use_smart_pointer(std::unique_ptr<int>& n)
+{
+    std::cout<<"smart pointer "<<*n<<"\n";
+}
+
+std::unique_ptr<int> get_smart_pointer()
+{
+    std::unique_ptr<int> num = std::make_unique<int>(500);
+    return num;
+}

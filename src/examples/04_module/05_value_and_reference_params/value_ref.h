@@ -15,3 +15,7 @@ Write function prototype for pass_by_const_ref with
 const int reference parameter
 */
 void pass_by_const_ref(const int& num);
+
+void use_smart_pointer(std::unique_ptr<int>& n);
+
+std::unique_ptr<int> get_smart_pointer();
