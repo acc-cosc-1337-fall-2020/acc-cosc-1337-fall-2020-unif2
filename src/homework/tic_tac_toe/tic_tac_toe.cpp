@@ -71,7 +71,7 @@ bool TicTacToe::game_over()
         set_winner();
         return true;
     }
-    //Here, the previous statement is false, so if board is full, then the game must have ended in a tie.
+    //If function reaches this, then previous statement was false, so if board is full, then the game must have ended in a tie.
     else if(TicTacToe::check_board_full())
     {
         winner = "C";
