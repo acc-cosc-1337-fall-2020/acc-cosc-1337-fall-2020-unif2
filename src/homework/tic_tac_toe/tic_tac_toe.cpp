@@ -65,19 +65,19 @@ void TicTacToe::clear_board()
 }
 
 bool TicTacToe::game_over()
-{   //Even if winner wins and fills the board on the last move, this statement will be true.
+{   //Here, even if winner wins and fills the board on the last move, this statement will be true.
     if(TicTacToe::check_column_win() || TicTacToe::check_row_win() || TicTacToe::check_diagonal_win())
     {
         set_winner();
         return true;
     }
-    //Previous statement here, so if board is full, then the game ends in a tie.
+    //Here, the previous statement is false, so if board is full, then the game must have ended in a tie.
     else if(TicTacToe::check_board_full())
     {
         winner = "C";
         return true;
     }
-    //Nobody has won and the board is not full, so game is not over yet.
+    //Here, nobody has won and the board is not full, so game is not over yet.
     else
     {
         return false;
