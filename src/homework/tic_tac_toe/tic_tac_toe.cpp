@@ -98,7 +98,7 @@ bool TicTacToe::check_column_win()
 }
 
 bool TicTacToe::check_row_win()
-{   //1,2,3 or 4,5,6 or 7,8,9
+{   //0,1,2 or 3,4,5 or 6,7,8
     for(std::size_t i=0; i < pegs.size()/3; ++i)
     {
         if((pegs[3*i] == pegs[3*i+1]) && (pegs[3*i] == pegs[3*i+2] && (pegs[3*i] != " ")))

@@ -5,12 +5,42 @@
 #include "bank_account.h"
 #include<stdlib.h>
 #include<time.h>
-using std::cout; using std::cin;
+#include<memory>
+#include<vector>
+
+using std::cout; using std::cin; using std::vector; using std::unique_ptr;
 enum transaction{DEPOSIT = 1, WITHDRAW = 2, DISPLAY = 3};//legacy C++
 enum class BANK_OPTIONS{DEPOSIT = 1, WITHDRAW = 2, DISPLAY = 3};
 
 int main()
 {
+	/*
+	BankAccount a;
+	cout<<a.get_balance()<<"\n";
+	CheckingAccount c(500);
+	cout<<c.get_balance()<<"\n";
+
+	a = c;
+	cout<<a.get_balance()<<"\n";
+
+	std::unique_ptr<BankAccount> up_a(new BankAccount());
+	cout<<up_a->get_balance()<<"\n";
+	std::unique_ptr<CheckingAccount> up_c = std::make_unique<CheckingAccount>(500);
+	cout<<up_c->get_balance()<<"\n";
+
+	//up_a = std::move(up_c);
+	//cout<<up_a->get_balance()<<"\n\n";
+
+	vector<unique_ptr<BankAccount>> accounts;//list
+	accounts.push_back(std::move(up_a));
+	accounts.push_back(std::move(up_c));
+
+	cout<<"Display vector: \n";
+	for(auto& account: accounts)
+	{
+		cout<<account->get_balance()<<"\n";
+	}
+
 	CheckingAccount ca(1000);
 	cout<<ca.get_balance()<<"\n";
 
@@ -24,6 +54,7 @@ int main()
 
 	//cin>>account;
 	//cout<<account;
+	*/
 	int choice;
 	char cont;
 
