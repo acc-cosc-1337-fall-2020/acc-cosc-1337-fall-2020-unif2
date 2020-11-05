@@ -45,7 +45,6 @@ protected:
     int balance {0};//class member
 
 private://access specifier
-    int customer_no;
     static int bank_balance;//private class member.  balance is not available to be used since it's private
     //use public if you want access to this variable. Users can modify it by using the deposit function.
 };//VERY IMPORTANT DON'T FORGET THE SEMICOLON!!

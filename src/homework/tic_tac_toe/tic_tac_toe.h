@@ -1,4 +1,5 @@
 //h
+#include<iostream>
 #include<string>
 #include<vector>
 
@@ -15,8 +16,9 @@ public:
     void start_game(string first_player);
     void mark_board(int position);
     string get_player()const{return player;}
-    void display_board()const;
     string get_winner(){return winner;}
+    friend std::ostream& operator<<(std::ostream& out, TicTacToe& game);
+    friend std::istream& operator>>(std::istream& in, TicTacToe& game);
 private:
     void set_next_player();
     bool check_board_full();

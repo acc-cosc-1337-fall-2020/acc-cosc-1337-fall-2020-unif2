@@ -13,23 +13,9 @@ void TicTacToe::start_game(string first_player)
 void TicTacToe::mark_board(int position)
 {
     pegs[position - 1] = player;
-    TicTacToe::set_next_player();
-}
-
-void TicTacToe::display_board()const
-{
-    for(std::size_t i=0; i < pegs.size(); ++i)
+    if(!game_over())
     {
-        cout<<pegs[i];
-        if((i+1) % 3 == 1 || (i+1) % 3 == 2)
-        {
-            cout<<"|";
-        }
-
-        if((i+1) % 3 == 0 && i != 8)
-        {
-            cout<<"\n_____\n";
-        }
+        TicTacToe::set_next_player();
     }
 }
 
@@ -133,4 +119,39 @@ void TicTacToe::set_winner()
     {
         winner = "X";
     }
+}
+
+std::ostream& operator<<(std::ostream& out, TicTacToe& game)
+{
+    for(std::size_t i=0; i < pegs.size(); ++i)
+    {
+        out<<pegs[i];
+        if((i+1) % 3 == 1 || (i+1) % 3 == 2)
+        {
+            out<<"|";
+        }
+
+        if((i+1) % 3 == 0 && i != 8)
+        {
+            out<<"\n_____\n";
+        }
+    }
+    return out;
+}
+
+std::istream& operator>>(std::istream& in, TicTacToe& game)
+{
+    double pos;
+	cout<<"\n\nPlayer "<<game.get_player()<<", it's your turn.\n";
+	cout<<"Choose your position (integer between 1 and 9) and DO NOT pick one that's already being occupied! ";
+	in>>pos;
+	while(pos < 1 || pos > 9)
+	{
+		cout<<"\nInvalid entry! Position must be an integer between 1 and 9 and not already occupied.\n";
+		cout<<"Choose your position: ";
+		in>>pos;
+	}
+	int position = pos;
+	game.mark_board(position);
+    return in;
 }
