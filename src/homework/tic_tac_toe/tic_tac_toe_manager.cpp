@@ -16,7 +16,7 @@ std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager)
     return out;
 }
 
-void TicTacToeManager::get_winner_total(int& o, int& w, int& t)
+void TicTacToeManager::get_winner_total(int& o, int& x, int& t)
 {
 
 }
