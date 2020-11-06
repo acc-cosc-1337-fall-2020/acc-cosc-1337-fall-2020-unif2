@@ -19,6 +19,7 @@ public:
     string get_winner(){return winner;}
     friend std::ostream& operator<<(std::ostream& out, TicTacToe& game);
     friend std::istream& operator>>(std::istream& in, TicTacToe& game);
+    void display_board()const;
 private:
     void set_next_player();
     bool check_board_full();

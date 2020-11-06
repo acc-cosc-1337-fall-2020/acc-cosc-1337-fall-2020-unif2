@@ -3,5 +3,5 @@
 
 void Shape::draw()
 {
-    std::cout<<"Draw shape";
+    std::cout<<"draw shape\n";
 }

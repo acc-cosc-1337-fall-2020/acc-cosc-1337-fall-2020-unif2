@@ -43,10 +43,12 @@ int main()
 			cout<<"\n\nHere is the final board state. Player "<<game.get_winner()<<" wins!\n\n";
 			cout<<game<<"\n\n";
 		}
-
+		manager.save_game(game);
+		manager.get_winner_total();
 		cout<<"Enter y to play another game, or any other key to quit: ";
 		cin>>choice;
 	} while(choice == 'y' || choice == 'Y');
+	cout<<manager;
 
 return 0;
 }

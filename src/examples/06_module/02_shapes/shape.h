@@ -1,12 +1,12 @@
 //shape.h
-#inlcude<iostream>
+#include<iostream>
 #ifndef SHAPE_H
 #define SHAPE_H
 
-class Shape
+class Shape//abstract class has at least one pure virtual function
 {
     public:
-        virtual void draw();
+        virtual void draw() = 0;//pure virtual function
 };
 
 #endif

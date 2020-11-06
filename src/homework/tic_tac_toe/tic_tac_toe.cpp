@@ -110,32 +110,20 @@ bool TicTacToe::check_diagonal_win()
 }
 
 void TicTacToe::set_winner()
-{   //O made the winning move, so player is set to X. Otherwise, X made the winning move.
+{   
     if(player == "X")
-    {
-        winner = "O";
-    }
-    else
     {
         winner = "X";
     }
+    else
+    {
+        winner = "O";
+    }
 }
 
-std::ostream& operator<<(std::ostream& out, TicTacToe& game)
+std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
 {
-    for(std::size_t i=0; i < pegs.size(); ++i)
-    {
-        out<<pegs[i];
-        if((i+1) % 3 == 1 || (i+1) % 3 == 2)
-        {
-            out<<"|";
-        }
-
-        if((i+1) % 3 == 0 && i != 8)
-        {
-            out<<"\n_____\n";
-        }
-    }
+    game.display_board();
     return out;
 }
 
@@ -154,4 +142,21 @@ std::istream& operator>>(std::istream& in, TicTacToe& game)
 	int position = pos;
 	game.mark_board(position);
     return in;
+}
+
+void TicTacToe::display_board()const
+{
+    for(std::size_t i=0; i < pegs.size(); ++i)
+    {
+        cout<<pegs[i];
+        if((i+1) % 3 == 1 || (i+1) % 3 == 2)
+        {
+            cout<<"|";
+        }
+
+        if((i+1) % 3 == 0 && i != 8)
+        {
+            cout<<"\n_____\n";
+        }
+    }
 }
