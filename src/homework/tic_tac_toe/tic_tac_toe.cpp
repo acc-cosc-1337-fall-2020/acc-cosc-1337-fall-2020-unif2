@@ -13,10 +13,12 @@ void TicTacToe::start_game(string first_player)
 void TicTacToe::mark_board(int position)
 {
     pegs[position - 1] = player;
-    if(!game_over())
+    TicTacToe::set_next_player();
+    //Commenting out code added due to previous version of instructions.
+    /*if(!game_over())
     {
         TicTacToe::set_next_player();
-    }
+    }*/
 }
 
 void TicTacToe::set_next_player()
@@ -113,11 +115,11 @@ void TicTacToe::set_winner()
 {   
     if(player == "X")
     {
-        winner = "X";
+        winner = "O";//From previous version of instructions, this was "X"
     }
     else
     {
-        winner = "O";
+        winner = "X";//From previous version of instructions, this was "O"
     }
 }
 
