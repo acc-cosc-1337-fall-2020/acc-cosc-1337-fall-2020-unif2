@@ -121,7 +121,7 @@ void TicTacToe::set_winner()
     }
 }
 
-std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
+std::ostream& operator<<(std::ostream& out, const TicTacToe game)
 {
     game.display_board();
     return out;

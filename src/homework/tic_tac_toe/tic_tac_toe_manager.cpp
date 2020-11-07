@@ -7,9 +7,9 @@ void TicTacToeManager::save_game(TicTacToe b)
     update_winner_count(b.get_winner());
 }
 
-std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager)
+std::ostream& operator<<(std::ostream& out, const TicTacToeManager manager)
 {
-    for(auto& g: manager.games)
+    for(auto g: manager.games)
     {
         g.display_board();
     }

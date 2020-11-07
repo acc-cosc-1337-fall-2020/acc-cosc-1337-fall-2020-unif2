@@ -17,7 +17,7 @@ public:
     void mark_board(int position);
     string get_player()const{return player;}
     string get_winner(){return winner;}
-    friend std::ostream& operator<<(std::ostream& out, TicTacToe& game);
+    friend std::ostream& operator<<(std::ostream& out, TicTacToe game);
     friend std::istream& operator>>(std::istream& in, TicTacToe& game);
     void display_board()const;
 private:
