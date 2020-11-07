@@ -9,9 +9,11 @@ void TicTacToeManager::save_game(TicTacToe b)
 
 std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager)
 {
+    out<<"\nHere are the results of the "<<manager.games.size()<<" games played.\n\n";
     for(auto& g: manager.games)
     {
-        g.display_board();
+        out<<g;
+        out<<"\n\n\n";
     }
     return out;
 }

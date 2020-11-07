@@ -123,7 +123,19 @@ void TicTacToe::set_winner()
 
 std::ostream& operator<<(std::ostream& out, const TicTacToe game)
 {
-    game.display_board();
+    for(std::size_t i=0; i < game.pegs.size(); ++i)
+    {
+        out<<game.pegs[i];
+        if((i+1) % 3 == 1 || (i+1) % 3 == 2)
+        {
+            out<<"|";
+        }
+
+        if((i+1) % 3 == 0 && i != 8)
+        {
+            out<<"\n_____\n";
+        }
+    }
     return out;
 }
 
@@ -142,21 +154,4 @@ std::istream& operator>>(std::istream& in, TicTacToe& game)
 	int position = pos;
 	game.mark_board(position);
     return in;
-}
-
-void TicTacToe::display_board()const
-{
-    for(std::size_t i=0; i < pegs.size(); ++i)
-    {
-        cout<<pegs[i];
-        if((i+1) % 3 == 1 || (i+1) % 3 == 2)
-        {
-            cout<<"|";
-        }
-
-        if((i+1) % 3 == 0 && i != 8)
-        {
-            cout<<"\n_____\n";
-        }
-    }
 }
