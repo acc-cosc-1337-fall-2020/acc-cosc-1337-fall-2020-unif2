@@ -6,6 +6,12 @@ BankAccount::BankAccount(int b) : balance(b)
     //code for validating data
     bank_balance += balance;
 }
+
+int BankAccount::get_balance() const
+{
+    return balance;
+}
+
 void BankAccount::deposit(int amount) //tells compiler that deposit function belongs to that class
 {   //this->balance = balance; //set this balance overide the class balance
     //this self references the class in memory
@@ -50,11 +56,11 @@ std::istream& operator>>(std::istream& in, BankAccount& a)
     return in;
 }
 
-BankAccount operator+(const BankAccount& a1, const BankAccount& a2)
+/*BankAccount operator+(const BankAccount& a1, const BankAccount& a2)
 {
     BankAccount account(a1.balance + a2.balance);
     return account;
-}
+}*/
 //FREE FUNCTIONS-DO NOT BELONG TO THE BANKACCOUNT CLASS
 void display_bank_account_data(BankAccount& b)
 {   
@@ -65,12 +71,13 @@ void display_bank_account_data(BankAccount& b)
     //adding & in parameter, i.e. passing BankAccount b as a reference, will allow us to change the balance with b.deposit(50)
 }
 
+/*
 BankAccount get_account()//return by value....this is a function that creates a BankAccount object
 {
     //Class that retrieves DB balance and creates BankAccount
     BankAccount a(1000);
     return a;//returns a copy
-}
+}*/
 
 void BranchBank::update_balance(int b)
 {

@@ -14,8 +14,9 @@ ATM::ATM()
 
 void ATM::scan_card()
 {
-    customer_index = rand() % customers.size()-1;
-
+    customer_index = rand() % customers.size()-1 + 1;//random from  to 3
+    cout<<customer_index<<"\n";
+    
     cout<<"\nWelcome to ACC bank\n";
     cout<<"1-Checking Account\n";
     cout<<"2-Savings Account\n";

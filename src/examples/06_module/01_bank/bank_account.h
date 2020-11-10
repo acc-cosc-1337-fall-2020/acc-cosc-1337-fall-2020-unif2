@@ -29,17 +29,16 @@ public://access specifier
     //BankAccount() : BankAccount(0)/*Delegating constructor*/ {/*empty code block*/}//new accounts....constructor overload example
     //Code for the following constructor will be in the .cpp file at the top
     explicit BankAccount(int b);// : balance(b){/*empty constructor code block*/}
-    int get_balance()const{return balance;} //inline function //const so that nobody can modify balance in the function code
-    int get_customer_no()const{return customer_no;}
-    void deposit(int amount);
-    void withdraw(int amount);
+    virtual int get_balance()const = 0; //inline function //const so that nobody can modify balance in the function code
+    virtual void deposit(int amount) final;
+    virtual void withdraw(int amount) final;
     friend void display_balance(const BankAccount& a);//NOT A CLASS FUNCTION-it is a free function
     friend void BranchBank::update_balance(int b);
     //in the book there is void set_deposit(int amount);//setter and getter methods
     static int get_bank_balance(){return bank_balance;}
     friend std::ostream& operator<<(std::ostream& out, const BankAccount& a);
     friend std::istream& operator>>(std::istream& in, BankAccount& a);
-    friend BankAccount operator+(const BankAccount& a1, const BankAccount& a2);
+    //friend BankAccount operator+(const BankAccount& a1, const BankAccount& a2);
 
 protected:
     int balance {0};//class member
@@ -51,4 +50,4 @@ private://access specifier
 #endif //header guards
 //THESE FUNCTIONS DON'T BELONG TO THE BANKACCOUNT CLASS
 void display_bank_account_data(BankAccount& b);//free function
-BankAccount get_account();//free function that returns a BankAccount datatype
+//BankAccount get_account();//free function that returns a BankAccount datatype
