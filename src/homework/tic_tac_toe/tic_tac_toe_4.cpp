@@ -10,7 +10,17 @@ Win by column if and return true if (each column index)
 else
 false
 */
-
+bool check_column_win()
+{
+    for(std::size_t i=0; i < pegs.size()/4; ++i)
+    {
+        if((pegs[2*i] == pegs[2*i + 1]) && (pegs[2*i] == pegs[2*i + 2]) && (pegs[2*i] == pegs[2*i + 3]) && (pegs[2*i] != " "))
+        {
+            return true;
+        }
+        return false;
+    }
+}
 
 
 
@@ -22,7 +32,10 @@ Win by row if
 8, 9, 10, 11 are equal 
 12,13,14, 15 are equal
 */
+bool check_row_win()
+{
 
+}
 
 
 /*
@@ -34,3 +47,7 @@ Win diagonally
 12,13,14, 15
 
 */
+bool check_diagonal_win()
+{
+
+}

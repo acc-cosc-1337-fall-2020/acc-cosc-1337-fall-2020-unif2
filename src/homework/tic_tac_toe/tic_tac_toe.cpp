@@ -74,40 +74,17 @@ bool TicTacToe::game_over()
 }
 
 bool TicTacToe::check_column_win()
-{   //0,3,6 or 1,4,7 or 2,5,8
-    for(std::size_t i=0; i < pegs.size()/3; ++i)
-    {
-        if((pegs[i] == pegs[i+3]) && (pegs[i] == pegs[i+6]) && (pegs[i] != " "))
-        {
-            return true;
-        }
-    }
+{
     return false;
 }
 
 bool TicTacToe::check_row_win()
-{   //0,1,2 or 3,4,5 or 6,7,8
-    for(std::size_t i=0; i < pegs.size()/3; ++i)
-    {
-        if((pegs[3*i] == pegs[3*i+1]) && (pegs[3*i] == pegs[3*i+2] && (pegs[3*i] != " ")))
-        {
-            return true;
-        }
-    }
+{
     return false;
 }
 
 bool TicTacToe::check_diagonal_win()
-{   //0,4,8 or 2,4,6
-    if((pegs[0] == pegs[4]) && (pegs[0] == pegs[8]) && (pegs[0] != " "))
-    {
-        return true;
-    }
-
-    else if((pegs[2] == pegs[4]) && (pegs[2] == pegs[6]) && (pegs[2] != " "))
-    {
-        return true;
-    }
+{
     return false;
 }
 
@@ -125,7 +102,24 @@ void TicTacToe::set_winner()
 
 std::ostream& operator<<(std::ostream& out, const TicTacToe game)
 {
-    for(std::size_t i=0; i < game.pegs.size(); ++i)
+    int size = game.pegs.size();
+    string border(size*2 - 1, '_');
+
+    for(std::size_t i=0; i < size; ++i)
+    {
+        out<<game.pegs[i];
+        if((i+1) % size != 0)
+        {
+            out<<"|";
+        }
+
+        if((i+1) % size == 0 && i != size-1)
+        {
+            out<<border;
+        }
+    }
+    
+    /*for(std::size_t i=0; i < game.pegs.size(); ++i)
     {
         out<<game.pegs[i];
         if((i+1) % 3 == 1 || (i+1) % 3 == 2)
@@ -137,7 +131,7 @@ std::ostream& operator<<(std::ostream& out, const TicTacToe game)
         {
             out<<"\n_____\n";
         }
-    }
+    }*/
     return out;
 }
 
@@ -145,11 +139,11 @@ std::istream& operator>>(std::istream& in, TicTacToe& game)
 {
     double pos;
 	cout<<"\n\nPlayer "<<game.get_player()<<", it's your turn.\n";
-	cout<<"Choose your position (integer between 1 and 9) and DO NOT pick one that's already being occupied! ";
+	cout<<"Choose your position (integer between 1 and "<<game.pegs.size()<<") and DO NOT pick one that's already being occupied! ";
 	in>>pos;
-	while(pos < 1 || pos > 9)
+	while(pos < 1 || pos > game.pegs.size())
 	{
-		cout<<"\nInvalid entry! Position must be an integer between 1 and 9 and not already occupied.\n";
+		cout<<"\nInvalid entry! Position must be an integer between 1 and "<<game.pegs.size()<<" and not already occupied.\n";
 		cout<<"Choose your position: ";
 		in>>pos;
 	}
