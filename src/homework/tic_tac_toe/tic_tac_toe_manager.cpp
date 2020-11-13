@@ -18,9 +18,12 @@ std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager)
     return out;
 }
 
-void TicTacToeManager::get_winner_total()
+void TicTacToeManager::get_winner_total(int& x, int& o, int& t)
 {
-    std::cout<<"Player X wins "<<x_win<<" times, Player O wins "<<o_win<<" times, and there are "<<ties<<" ties.\n";
+    x = x_win;
+    o = o_win;
+    t = ties;
+    //std::cout<<"Player X wins "<<x_win<<" times, Player O wins "<<o_win<<" times, and there are "<<ties<<" ties.\n";
 }
 
 void TicTacToeManager::update_winner_count(string winner)

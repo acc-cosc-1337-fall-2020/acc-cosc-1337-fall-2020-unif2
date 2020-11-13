@@ -28,7 +28,26 @@ int main()
 
 	//pointer
 	int num1 = 10, num3 = 15;
-	int* num_ptr = &num1;//pointers work with addresses (to work with values, use *)
+	//int* num_ptr = &num1;//declare a pointer and initialize it.  pointers work with addresses (to work with values, use *)
+	int* num_ptr = nullptr;//delare a pointer but it's not pointing to anything yet.
+	num_ptr = &num1;//now point it to something
+	int* num_ptr{};//same as int* num_ptr = nullptr;
+	int* num_ptr1 = 0;
+	if(*num_ptr == *num_ptr1)//always de-reference to work with values!
+	{
+		//code
+	}
+
+	/*
+	if(num_ptr != nullptr)
+	{
+
+	}
+	else
+	{
+		//error not initialized
+	}*/
+	
 
 	cout<<"Value of num1: "<<num1<<"\n";//10
 	cout<<"Address of num1: "<<&num1<<"\n";
@@ -66,7 +85,33 @@ int main()
 	cout<<"Address of up_num: "<<up_num<<"\n";//0x0
 	cout<<"Address of numbers[0]: "<<numbers[0]<<"\n";//0x7f89d25026c0
 
+	int n1 = 1, n2 = 2;
 
+	ref_ptr(n1, &n2);//n1 is a reference parameter, n2 is a pointer parameter
+	cout<<n1<<"\n";//10
+	cout<<n2<<"\n";//20
+
+	const int SIZE = 5;
+	const int* ptr = &SIZE;//pointer cannot modify SIZE, since SIZE is const
+	//int* ptr = &SIZE will give an erro
+	cout<<*ptr<<"\n";
+
+	const int SIZE2 = 10;//but we can still make it point to another const variable
+	ptr = &SIZE2;
+
+	cout<<*ptr<<"\n";
+
+	int n=5;
+	ptr = &n;
+
+	cout<<*ptr<<"\n";
+	
+	//*ptr = 10;//cannot modify the value
+
+	//cout<<*ptr;
+
+	int* const ptr1 = &n;//this is a constant (pointer is constant)-assign only once...can't be reassigned to another address
+	//ptr1 = &n1;//attempting to assign it to another address, which we cannot do because it was declared const
 
 	return 0;
 }
