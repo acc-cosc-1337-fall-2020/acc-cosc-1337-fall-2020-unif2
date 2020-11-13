@@ -54,7 +54,7 @@ void TicTacToe::clear_board()
 
 bool TicTacToe::game_over()
 {   //Here, even if winner wins and fills the board on the last move, this statement will be true.
-    if(TicTacToe::check_column_win() || TicTacToe::check_row_win() || TicTacToe::check_diagonal_win())
+    if(check_column_win() || check_row_win() || check_diagonal_win())
     {
         set_winner();
         return true;
