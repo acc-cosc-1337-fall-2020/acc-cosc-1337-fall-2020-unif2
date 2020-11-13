@@ -7,7 +7,7 @@ using std::cin;
 void TicTacToe::start_game(string first_player)
 {
     player = first_player;
-    TicTacToe::clear_board();
+    //TicTacToe::clear_board();
 }
 
 void TicTacToe::mark_board(int position)
