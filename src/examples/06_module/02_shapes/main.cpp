@@ -45,12 +45,3 @@ int main()
 	
 	return 0;
 }
-
-for(auto& game: games)
-{
-	out<<*game;//*game gives value
-
-	
-}
-
-(unique ponter to tictactoe reference)

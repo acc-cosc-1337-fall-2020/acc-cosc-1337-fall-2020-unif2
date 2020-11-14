@@ -8,6 +8,7 @@ using std::cin;
 void TicTacToe::start_game(string first_player)
 {
     player = first_player;
+    //Commenting the next line out because it was leading to wrong results.
     //TicTacToe::clear_board();
 }
 
@@ -103,40 +104,24 @@ void TicTacToe::set_winner()
 
 std::ostream& operator<<(std::ostream& out, const TicTacToe game)
 {
-    double s = game.pegs.size();
-    double root_s = std::sqrt(s);
-    int size = s;
-    int for_display = root_s;
+    int size = game.pegs.size();
+    int root_s = std::sqrt(size);
 
     string border(root_s*2 - 1, '_');
 
-    for(std::size_t i=0; i < s; ++i)
+    for(std::size_t i=0; i < size; ++i)
     {
         out<<game.pegs[i];
-        if((i+1) % for_display != 0)
+        if((i+1) % root_s != 0)
         {
             out<<"|";
         }
 
-        if(((i+1) % for_display == 0) && (i != size-1))
+        if(((i+1) % root_s == 0) && (i != size-1))
         {
             out<<"\n"<<border<<"\n";
         }
     }
-    
-    /*for(std::size_t i=0; i < game.pegs.size(); ++i)
-    {
-        out<<game.pegs[i];
-        if((i+1) % 3 == 1 || (i+1) % 3 == 2)
-        {
-            out<<"|";
-        }
-
-        if((i+1) % 3 == 0 && i != 8)
-        {
-            out<<"\n_____\n";
-        }
-    }*/
     return out;
 }
 

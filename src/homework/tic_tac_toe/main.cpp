@@ -13,18 +13,20 @@ int main()
 	string player;
 	TicTacToeManager manager;
 	char choice;
-	int version;
 	do
 	{
 		unique_ptr<TicTacToe> game;
+		double num;
 		cout<<"Enter 3 for TicTacToe3 or 4 for TicTacToe4: ";
-		cin>>version;
-		while((version != 3) && (version != 4))
+		cin>>num;
+		while((num != 3) && (num != 4))
 		{
 			cout<<"\nInvalid entry!  Please choose either 3 or 4: ";
-			cin>>version;
+			cin>>num;
 		}
 		
+		int version = num;
+
 		if(version == 3)
 		{
 			game = make_unique<TicTacToe3>();
@@ -34,7 +36,6 @@ int main()
 			game = make_unique<TicTacToe4>();
 		}
 		
-		//unique_ptr<TicTacToe> game = make_unique<TicTacToe>(version);
 		cout<<"\nFirst player, choose either X or O: ";
 		cin>>player;
 

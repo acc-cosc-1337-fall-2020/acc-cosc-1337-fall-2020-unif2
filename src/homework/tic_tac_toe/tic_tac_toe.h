@@ -33,7 +33,6 @@ private:
     void clear_board();
     void set_winner();
     string player;
-    //vector<string> pegs{" "," "," "," "," "," "," "," "," "};
     string winner;
 };
 #endif
