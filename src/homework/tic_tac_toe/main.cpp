@@ -1,18 +1,41 @@
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_manager.h"
+#include "tic_tac_toe_3.h"
+#include "tic_tac_toe_4.h"
+#include<memory>
 #include<iostream>
 using std::cout;
 using std::cin;
-
+using std::unique_ptr;
+using std::make_unique;
 int main() 
 {
 	string player;
-	TicTacToe game;
 	TicTacToeManager manager;
 	char choice;
+	int version;
 	do
 	{
-		cout<<"Tic Tac Toe!  First player, choose either X or O: ";
+		unique_ptr<TicTacToe> game;
+		cout<<"Enter 3 for TicTacToe3 or 4 for TicTacToe4: ";
+		cin>>version;
+		while((version != 3) && (version != 4))
+		{
+			cout<<"\nInvalid entry!  Please choose either 3 or 4: ";
+			cin>>version;
+		}
+		
+		if(version == 3)
+		{
+			game = make_unique<TicTacToe3>();
+		}
+		else
+		{
+			game = make_unique<TicTacToe4>();
+		}
+		
+		//unique_ptr<TicTacToe> game = make_unique<TicTacToe>(version);
+		cout<<"\nFirst player, choose either X or O: ";
 		cin>>player;
 
 		while (player != "X" && player != "O")
@@ -21,30 +44,32 @@ int main()
 			cin>>player;
 		}
 		
-		game.start_game(player);
+		game->start_game(player);
 		cout<<"\nHere is the current board state: \n\n";
-		cout<<game;
+		cout<<*game;
 
-		while(!game.game_over())
+		while(!game->game_over())
 		{
-			cin>>game;
+			cin>>*game;
 			cout<<"\nHere is the current board state:\n\n";
-			cout<<game;
+			cout<<*game;
 		}
 
-		if(game.get_winner() == "C")
+		if(game->get_winner() == "C")
 		{
 			cout<<"\n\nHere is the final board state. It's a TIE!\n";
-			cout<<game<<"\n\n";
+			cout<<*game<<"\n\n";
 		}
 
 		else
 		{
-			cout<<"\n\nHere is the final board state. Player "<<game.get_winner()<<" wins!\n\n";
-			cout<<game<<"\n\n";
+			cout<<"\n\nHere is the final board state. Player "<<game->get_winner()<<" wins!\n\n";
+			cout<<*game<<"\n\n";
 		}
 		manager.save_game(game);
-		manager.get_winner_total();
+		int x, o, t;
+		manager.get_winner_total(x, o, t);
+		cout<<"Player X wins "<<x<<" times, Player O wins "<<o<<" times, and there are "<<t<<" ties.\n";
 		cout<<"Enter y to play another game, or any other key to quit: ";
 		cin>>choice;
 	} while(choice == 'y' || choice == 'Y');

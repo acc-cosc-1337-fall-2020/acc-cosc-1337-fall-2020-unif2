@@ -12,7 +12,7 @@ std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager)
     out<<"\nHere are the results of the "<<manager.games.size()<<" games played.\n\n";
     for(auto& g: manager.games)
     {
-        out<<g;
+        out<<*g;
         out<<"\n\n\n";
     }
     return out;
