@@ -14,6 +14,16 @@ using std::unique_ptr; using std::make_unique;
 
 int main() 
 {
+	Circle* ptr_circle = nullptr;//declare a pointer to Circle but it's currently pointing to nothing
+	//can also make it = 0 or = NULL and it would be the same thing.
+	//not initializing it may make the pointer point to something that was there before, giving weird/inconsistent results
+	
+	Circle circle0;
+	
+	ptr_circle = &circle0;//now ptr_circle is pointing to something that exists
+	ptr_circle->draw();//dereferencing the pointer (using * behind the scenes)
+	(*ptr_circle).draw();//this also works since *ptr_circle is just the object circle0.
+
 	Shape* s = nullptr;
 	Circle c;
 	c.draw();
