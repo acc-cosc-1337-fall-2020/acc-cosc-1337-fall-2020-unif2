@@ -135,5 +135,21 @@ int main()
 
 
 	const int* const ptr2 = &SIZE;//const pointer to const. So it cannot change the value AND it cannot be reassigned a different address.
+	
+	int blah = 5, blah1 = 5;
+
+	int* blah_ptr = &blah;
+	int* blah1_ptr = &blah1;
+
+	if(blah1_ptr == blah_ptr)
+	{
+		cout<<"equal";
+	}
+	else
+	{
+		cout<<"not equal";
+	}
+	//outputs not equal, but *blah1_ptr == *blah_ptr outputs equal
+	
 	return 0;
 }

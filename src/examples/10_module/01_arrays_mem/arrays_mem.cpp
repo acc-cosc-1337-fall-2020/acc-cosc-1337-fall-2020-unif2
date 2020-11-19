@@ -8,7 +8,7 @@ void stack_array()
 
     for(int i=0; i < SIZE; ++i)//initialize
     {
-        numbers[i] =  i + 1;
+        numbers[i] =  i + 1;//changing the original when using the subscript, [i]
     }
 
     for(int i=0; i < SIZE; ++i)//iterate the array(list)
