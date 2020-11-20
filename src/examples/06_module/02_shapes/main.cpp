@@ -52,6 +52,33 @@ int main()
 		shape->draw();
 		//out<<*shape
 	}
+	Shape* ptr = new Circle[3];
+	ptr[0].draw();
+
+	//use ptr
+
+	std::cout<<"pointer to pointer dyanmic array"\n;
+	Shape** shapes1 = new Shape*[3];//pointer to a pointer of type Shape
+	shapes1[0] = new Circle();
+	shapes1[1] = new Line();
+	shapes1[2] = new Circle();
+
+	shapes1[0]->draw();
+	shapes1[1]->draw();
+	shapes1[2]->draw();
+
+	std::cout<<"\n ENDpointer to pointer dynamic array\n";
+
+
+
+	Circle circles[3];//array of 3 circles...created on the stack
+	circles[0].draw();
+	circles[1].draw();
+	circles[2].draw();
+
+	Circle c = circles[0];
+	c.draw();
+
 	
 	return 0;
 }
