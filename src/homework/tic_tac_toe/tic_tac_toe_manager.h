@@ -1,5 +1,6 @@
 //h
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_data.h"
 #include<iostream>
 #include<memory>
 
@@ -19,5 +20,6 @@ class TicTacToeManager
         int x_win{0};
         int o_win{0};
         int ties{0};
+        TicTacToeData data;
 };
 #endif

@@ -12,7 +12,9 @@ using std::vector;
 class TicTacToe
 {
 public:
+    TicTacToe(vector<string> p, string win) : pegs(p), winner(win){}
     TicTacToe(int size) : pegs(size*size, " "){}
+    vector<string> get_pegs()const{return pegs;}
     bool game_over();
     void start_game(string first_player);
     void mark_board(int position);
