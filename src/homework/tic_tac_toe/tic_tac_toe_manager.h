@@ -11,7 +11,7 @@ class TicTacToeManager
 {
     public:
         TicTacToeManager() = default;
-        TicTacToeManager(TicTacToeData& d) : data(d){}
+        TicTacToeManager(TicTacToeData &data);
         ~TicTacToeManager();
         void save_game(unique_ptr<TicTacToe>& b);
         friend std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager);

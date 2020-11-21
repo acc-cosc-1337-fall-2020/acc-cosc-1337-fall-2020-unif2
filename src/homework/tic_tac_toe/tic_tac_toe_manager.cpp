@@ -1,7 +1,7 @@
 //cpp
 #include "tic_tac_toe_manager.h"
 
-TicTacToeManager::TicTacToeManager(TicTacToeData& d) : data(d)
+TicTacToeManager::TicTacToeManager(TicTacToeData &data)
 {
     vector<unique_ptr<TicTacToe>> games = data.get_games();
 
