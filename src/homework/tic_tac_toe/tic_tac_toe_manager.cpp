@@ -25,7 +25,7 @@ void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& b)
 
 std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager)
 {
-    out<<"\nHere are the results of the "<<manager.games.size()<<" games played.\n\n";
+    out<<"\nHere are the results of the "<<manager.games.size()<<" games played this session.\n\n";
     for(auto& g: manager.games)
     {
         out<<*g;

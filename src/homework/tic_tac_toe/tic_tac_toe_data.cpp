@@ -28,10 +28,11 @@ vector<unique_ptr<TicTacToe>> TicTacToeData::get_games()
     in_file.open("games.dat");
 
     string line;
-    vector<string> pegs;
+    //vector<string> pegs;
 
     while(getline(in_file, line))
     {
+        vector<string> pegs;
         for(char& c: line.substr(0, line.size()-1))
         {
             pegs.push_back(string(1, c));
