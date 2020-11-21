@@ -1,11 +1,11 @@
 //h
+#ifndef TIC_TAC_TOE_MANAGER_H
+#define TIC_TAC_TOE_MANAGER_H
+
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_data.h"
 #include<iostream>
 #include<memory>
-
-#ifndef TIC_TAC_TOE_MANAGER_H
-#define TIC_TAC_TOE_MANAGER_H 
 
 class TicTacToeManager
 {

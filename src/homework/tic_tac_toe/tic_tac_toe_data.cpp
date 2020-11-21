@@ -11,7 +11,7 @@ void TicTacToeData::save_games(const vector<unique_ptr<TicTacToe>>& games)
 
     for(auto& game: games)
     {
-        for(char& c: game->get_pegs())
+        for(string& c: game->get_pegs())
         {
             out_file<<c;
         }

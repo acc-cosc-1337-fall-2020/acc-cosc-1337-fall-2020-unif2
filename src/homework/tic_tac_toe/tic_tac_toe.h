@@ -1,13 +1,13 @@
 //h
+#ifndef TIC_TAC_TOE_H
+#define TIC_TAC_TOE_H
+
 #include<iostream>
 #include<string>
 #include<vector>
 
 using std::string;
 using std::vector;
-
-#ifndef TIC_TAC_TOE_H
-#define TIC_TAC_TOE_H
 
 class TicTacToe
 {
