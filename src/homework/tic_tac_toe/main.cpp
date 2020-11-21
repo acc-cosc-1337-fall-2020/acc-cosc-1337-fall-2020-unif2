@@ -11,7 +11,8 @@ using std::make_unique;
 int main() 
 {
 	string player;
-	TicTacToeManager manager;
+	TicTacToeData data;
+	TicTacToeManager manager(data);
 	char choice;
 	do
 	{

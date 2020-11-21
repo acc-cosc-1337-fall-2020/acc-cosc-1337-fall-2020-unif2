@@ -10,13 +10,16 @@
 class TicTacToeManager
 {
     public:
-        void save_game(std::unique_ptr<TicTacToe>& b);
+        TicTacToeManager() = default;
+        TicTacToeManager(TicTacToeData& d) : data(d){}
+        ~TicTacToeManager();
+        void save_game(unique_ptr<TicTacToe>& b);
         friend std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager);
         void get_winner_total(int& x, int& o, int& t);
 
     private:
         void update_winner_count(string winner);
-        vector<std::unique_ptr<TicTacToe>> games;
+        vector<unique_ptr<TicTacToe>> games;
         int x_win{0};
         int o_win{0};
         int ties{0};
