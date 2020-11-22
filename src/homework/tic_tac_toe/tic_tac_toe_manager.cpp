@@ -10,6 +10,9 @@ TicTacToeManager::TicTacToeManager(TicTacToeData &data)
         string winner = game->get_winner();
         update_winner_count(winner);
     }
+    int x, o, t;
+	get_winner_total(x, o, t);
+	std::cout<<"History of results: Player X won "<<x<<" times, Player O won "<<o<<" times, and there have been "<<t<<" ties.\n";
 }
 
 TicTacToeManager::~TicTacToeManager()

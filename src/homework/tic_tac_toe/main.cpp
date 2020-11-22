@@ -12,7 +12,7 @@ int main()
 {
 	string player;
 	TicTacToeData data;
-	cout<<"Loading saved games...\n";
+	//cout<<"Loading saved games...\n";
 	TicTacToeManager manager(data);
 	char choice;
 	do

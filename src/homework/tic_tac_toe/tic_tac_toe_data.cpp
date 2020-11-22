@@ -2,11 +2,12 @@
 #include "tic_tac_toe_data.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
+#include<iostream>
 #include<fstream>
 
 void TicTacToeData::save_games(const vector<unique_ptr<TicTacToe>>& games)
 {
-    std::ofstream out_file;
+    std::ofstream out_file;//("games.data", std::ios::app);
     out_file.open("games.dat");
 
     for(auto& game: games)
@@ -26,8 +27,10 @@ vector<unique_ptr<TicTacToe>> TicTacToeData::get_games()
     
     std::ifstream in_file;
     in_file.open("games.dat");
-
+    
+    std::cout<<"Loading saved games...\n";
     string line;
+    string winner;
     //vector<string> pegs;
 
     while(getline(in_file, line))
@@ -37,7 +40,7 @@ vector<unique_ptr<TicTacToe>> TicTacToeData::get_games()
         {
             pegs.push_back(string(1, c));
         }
-        string winner = string(1, line[line.size()-1]);
+        winner = string(1, line[line.size()-1]);
         unique_ptr<TicTacToe> game;
 
         if(pegs.size() == 9)
