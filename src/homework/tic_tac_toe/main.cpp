@@ -12,7 +12,6 @@ int main()
 {
 	string player;
 	TicTacToeData data;
-	//cout<<"Loading saved games...\n";
 	TicTacToeManager manager(data);
 	char choice;
 	do
@@ -73,7 +72,6 @@ int main()
 			cout<<*game<<"\n\n";
 		}
 		manager.save_game(game);
-		//int x, o, t;
 		manager.get_winner_total(x, o, t);
 		cout<<"History of results: Player X wins "<<x<<" times, Player O wins "<<o<<" times, and there are "<<t<<" ties.\n";
 		cout<<"Enter y to play another game, or any other key to quit: ";

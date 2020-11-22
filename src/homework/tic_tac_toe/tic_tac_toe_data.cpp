@@ -7,7 +7,9 @@
 
 void TicTacToeData::save_games(const vector<unique_ptr<TicTacToe>>& games)
 {
-    std::ofstream out_file;//("games.data", std::ios::app);
+    //std::ofstream out_file("games.data", std::ios::app); if you don't want to overwrite previous
+    //version of file.  But that's not needed here because we are loading past games into the manager.
+    std::ofstream out_file;
     out_file.open("games.dat");
 
     for(auto& game: games)
@@ -31,7 +33,6 @@ vector<unique_ptr<TicTacToe>> TicTacToeData::get_games()
     std::cout<<"Loading saved games...\n";
     string line;
     string winner;
-    //vector<string> pegs;
 
     while(getline(in_file, line))
     {

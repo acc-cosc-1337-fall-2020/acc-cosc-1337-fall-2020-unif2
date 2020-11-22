@@ -5,8 +5,6 @@
 #include "tic_tac_toe.h"
 #include<memory>
 using std::unique_ptr; using std::make_unique;
-//#include "tic_tac_toe_3.h"
-//#include "tic_tac_toe_4.h"
 
 class TicTacToeData
 {
