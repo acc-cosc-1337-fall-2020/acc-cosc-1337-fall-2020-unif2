@@ -30,7 +30,6 @@ vector<unique_ptr<TicTacToe>> TicTacToeData::get_games()
     std::ifstream in_file;
     in_file.open("games.dat");
     
-    std::cout<<"Loading saved games...\n";
     string line;
     string winner;
 

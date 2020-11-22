@@ -73,7 +73,7 @@ int main()
 		}
 		manager.save_game(game);
 		manager.get_winner_total(x, o, t);
-		cout<<"History of results: Player X wins "<<x<<" times, Player O wins "<<o<<" times, and there are "<<t<<" ties.\n";
+		cout<<"Results so far: Player X wins "<<x<<" times, Player O wins "<<o<<" times, and there are "<<t<<" ties.\n";
 		cout<<"Enter y to play another game, or any other key to quit: ";
 		cin>>choice;
 	} while(choice == 'y' || choice == 'Y');

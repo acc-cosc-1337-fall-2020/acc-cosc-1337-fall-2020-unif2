@@ -14,7 +14,11 @@ TicTacToeManager::TicTacToeManager(TicTacToeData &data)
     }
     int x, o, t;
 	get_winner_total(x, o, t);
-	std::cout<<"History of results: Player X won "<<x<<" times, Player O won "<<o<<" times, and there have been "<<t<<" ties.\n";
+	if(x+o+t > 0)
+    {   
+        std::cout<<"Loading saved games...\n";
+        std::cout<<"Past results: Player X won "<<x<<" times, Player O won "<<o<<" times, and there have been "<<t<<" ties.\n";
+    }
 }
 
 TicTacToeManager::~TicTacToeManager()
