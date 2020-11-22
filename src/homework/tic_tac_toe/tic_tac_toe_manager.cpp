@@ -3,7 +3,9 @@
 
 TicTacToeManager::TicTacToeManager(TicTacToeData &data)
 {
-    vector<unique_ptr<TicTacToe>> games = data.get_games();
+    //Initially, I had vector<unique_ptr<TicTacToe>> games = data.get_games(); but that was causing
+    //Previous runtime results to be discarded.
+    games = data.get_games();
 
     for(auto& game: games)
     {
@@ -28,7 +30,7 @@ void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& b)
 
 std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager)
 {
-    out<<"\nHere are the results of the "<<manager.games.size()<<" games played this session.\n\n";
+    out<<"\nHere are the results of the "<<manager.games.size()<<" games played so far.\n\n";
     for(auto& g: manager.games)
     {
         out<<*g;

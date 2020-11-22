@@ -19,6 +19,9 @@ int main()
 	{
 		unique_ptr<TicTacToe> game;
 		double num;
+		int x, o, t;
+		manager.get_winner_total(x, o, t);
+		cout<<"Game "<<x+o+t+1<<"\n";
 		cout<<"Enter 3 for TicTacToe3 or 4 for TicTacToe4: ";
 		cin>>num;
 		while((num != 3) && (num != 4))
@@ -70,7 +73,7 @@ int main()
 			cout<<*game<<"\n\n";
 		}
 		manager.save_game(game);
-		int x, o, t;
+		//int x, o, t;
 		manager.get_winner_total(x, o, t);
 		cout<<"History of results: Player X wins "<<x<<" times, Player O wins "<<o<<" times, and there are "<<t<<" ties.\n";
 		cout<<"Enter y to play another game, or any other key to quit: ";
