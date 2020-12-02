@@ -3,6 +3,15 @@
 using std::cout;
 //define iterate_array and loop through with ++ increment
 
+void iterate_array(int nums[], int size)
+{
+    for(int i=0; i<size; ++i)
+    {
+        std::cout<<nums[i]<<"\n";
+    }
+    nums[size - 1] = 1000;
+}
+
 void arrays_and_pointers()
 {
     const int SIZE = 3;

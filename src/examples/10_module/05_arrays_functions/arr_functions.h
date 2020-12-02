@@ -2,6 +2,9 @@
 #include<iostream>
 #include<iomanip>
 
+//Note: We're passing int nums[] by reference because nums is a pointer and pointers point to addresses
+void iterate_array(int nums[], int size);//have to pass in size because the array doesn't know how big it is
+
 const int ROWS = 10;
 const int COLS = 10;
 
