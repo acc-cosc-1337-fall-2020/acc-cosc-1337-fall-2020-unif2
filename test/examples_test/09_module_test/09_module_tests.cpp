@@ -49,16 +49,23 @@ TEST_CASE("Test create vector from existing vector instance - compare elements")
 	v1[0] = 5;
 	REQUIRE(v1[0] == 5);
 	REQUIRE(v1[0] != v2[0]);//because v2 should have its own three slots on the heap, initialized to 0, thanks to the copy constructor
-	//this would fail without the copy constructor (see the diagram "Memberwise copy - stack variables")
+	//this would fail without the copy constructor (see the diagram "Memberwise copy - stack variables") because v2 would point to v1 instead of having
+	//its own memory on the heap
 }
 
-TEST_CASE("Test create vector by overwriting existing vector with existing vector instance")
+TEST_CASE("Test overwrite new Vector from an existing Vector instance - check elements")
 {
 	Vector v3(3);
 	Vector v4(3);
 
+	v4 = v3;//overwriting v4 with v3 - using new copy assignment overloaded "=" operator
 	v3[0] = 1;
-	v4 = v3;
 
-	REQUIRE(v3[0] == v4[0]);
+	REQUIRE(v4[0] != v3[0]);//passes because we overloaded the "=" operator in the Vector class.  
+	//Although we changed v3, v4 remains unchanged because it has its own memory that it's pointing to
+	//Without the overloaded "=" operator, the above test would have failed because after v4=v3 line, 
+	//v4 would point to v3's memory, leaving nothing to point to v4's memory, and so we would have no way
+	//of deleting v4's memory (causing a memory leak).  See diagram "No copy assignment"
+	//With no copy assignment, when program exits, destructor will delete v3 memory and then v4's destructor
+	//will run and try to delete memory that doesn't exist (=Bad).
 }

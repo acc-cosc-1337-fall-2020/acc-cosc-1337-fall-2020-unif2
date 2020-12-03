@@ -14,7 +14,8 @@ int main()
     use_heap_vector();//creates memory but does not release it, unless we call delete in the function ourselves
     std::cout<<"After function\n";
 
-    //requires copy constructor
+    //Requires copy constructor to work properly.  Otherwise two Vector instances will point to the same memory
+    //With the copy constructor, each will point to their own memory.
     Vector v1(3);
     Vector v2 = v1;//create new vector from the existing vector
 

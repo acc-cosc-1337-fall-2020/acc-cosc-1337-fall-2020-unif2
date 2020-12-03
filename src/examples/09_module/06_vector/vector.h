@@ -9,12 +9,12 @@ class Vector
 {
     public:
         Vector(size_t sz);//constructor...size_t is an unsigned integer - starts at 1
-        Vector(const Vector& v);//copy constructor Rule 1 of 3 for Rule of 3 - Legacy C++//crates new memory and when we copy it creates more memory instead of pointing to other memory
-        Vector& operator=(const Vector& v);//copy assignment 2 of 3 for Rule of 3 Legacy C++
+        Vector(const Vector& v);//copy constructor Rule 1 of 3 for Rule of 3 - inherited from Legacy C++//creates new memory of the same size and copy values into the new memory and make sure pointer points to that new memory (when we copy it creates more memory instead of pointing to old memory)
+        Vector& operator=(const Vector& v);//copy assignment Rule 2 of 3 for Rule of 3 - Legacy C++
         size_t Size()const{return size;}
         int& operator[](size_t i){return elements[i];}//return a reference to an integer
         int& operator[](size_t i)const {return elements[i];}
-        ~Vector();//destructor Rule 2 of 3 for Rule of 3 - Legacy C++
+        ~Vector();//destructor Rule 3 of 3 for Rule of 3 - Legacy C++
 
     private:
         size_t size;
