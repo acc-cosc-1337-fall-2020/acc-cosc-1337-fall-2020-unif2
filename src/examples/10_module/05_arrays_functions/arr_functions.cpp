@@ -3,7 +3,16 @@
 using std::cout;
 //define iterate_array and loop through with ++ increment
 
-void iterate_array(int nums[], int size)
+void iterate_array(int nums[], int size)//passing in arrays syntax
+{
+    for(int i=0; i<size; ++i)
+    {
+        std::cout<<nums[i]<<"\n";
+    }
+    nums[size - 1] = 1000;
+}
+
+void iterate_array_ptr(int* nums, int size)//passes in a pointer to nums
 {
     for(int i=0; i<size; ++i)
     {
@@ -30,9 +39,9 @@ void arrays_and_pointers()
 	cout<<*ptr<<"\n";//outputs 1
 }
 
-void populate_times_table(int times_table [][COLS], int ROW)
+void populate_times_table(int times_table [][COLS], int ROWS)
 {
-    for(int i=0; i<ROW; ++i)
+    for(int i=0; i<ROWS; ++i)
     {
         for(int j=0; j<COLS; ++j)
         {
@@ -47,9 +56,9 @@ void display_times_table(int times_table [][COLS], int ROW)
     {
         for(int j=0; j<COLS; ++j)
         {
-            cout<<std::setw(5)<<times_table[i][j];
+            cout<<std::setw(5)<<times_table[i][j];//setw(5) sets the width of each entry to 5
         }
-        cout<<"\n";
+        cout<<"\n";//after each row, create a new line
     }
 }
 

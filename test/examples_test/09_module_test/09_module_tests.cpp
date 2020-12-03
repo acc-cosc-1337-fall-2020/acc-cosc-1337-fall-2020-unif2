@@ -28,12 +28,17 @@ TEST_CASE("Reference and pointer function parameters use a pointer")
 	REQUIRE(n2==20);
 }
 
-TEST_CASE("Test create vector from existing vector instance - compare size")
+TEST_CASE("Test create Vector from existing Vector instance - compare size")
 {
 	Vector v1(3);
 	Vector v2 = v1;
 
-	REQUIRE(v1.Size() == v2.Size());
+	REQUIRE(v1.Size() == v2.Size());//passes, but the following gets printed:
+	// Create and init memory/elements
+	// Copy constructor create and init memory
+	// Release memory from heap
+	// Release memory from heap
+	// (so memory is released twice...something is wrong here)
 }
 
 TEST_CASE("Test create vector from existing vector instance - compare elements")
@@ -42,8 +47,9 @@ TEST_CASE("Test create vector from existing vector instance - compare elements")
 	Vector v2 = v1;//v2's elements points to same elements array as v1
 
 	v1[0] = 5;
-	REQUIRE(v1[0] == 5);//
-	REQUIRE(v1[0] != v2[0]);
+	REQUIRE(v1[0] == 5);
+	REQUIRE(v1[0] != v2[0]);//because v2 should have its own three slots on the heap, initialized to 0, thanks to the copy constructor
+	//this would fail without the copy constructor (see the diagram "Memberwise copy - stack variables")
 }
 
 TEST_CASE("Test create vector by overwriting existing vector with existing vector instance")

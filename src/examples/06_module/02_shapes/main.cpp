@@ -14,6 +14,7 @@ using std::unique_ptr; using std::make_unique;
 
 int main() 
 {
+/*
 	Circle* ptr_circle = nullptr;//declare a pointer to Circle but it's currently pointing to nothing
 	//can also make it = 0 or = NULL and it would be the same thing.
 	//not initializing it may make the pointer point to something that was there before, giving weird/inconsistent results
@@ -68,10 +69,10 @@ int main()
 	shapes1[2]->draw();
 
 	std::cout<<"\n ENDpointer to pointer dynamic array\n";
-
-
-
-	Circle circles[3];//array of 3 circles...created on the stack
+*/
+	//creating an array of circles on the stack
+	const int SIZE = 3;
+	Circle circles[SIZE];//array of 3 circles...created on the stack
 	circles[0].draw();
 	circles[1].draw();
 	circles[2].draw();
@@ -79,6 +80,32 @@ int main()
 	Circle c = circles[0];
 	c.draw();
 
-	
+	//dynamic memory example - Circle is not a pointer
+	Shape* shapes_example = new Circle[SIZE];
+	shapes_example[0].draw();
+	shapes_example[1].draw();
+	shapes_example[2].draw();
+
+	delete[] shapes_example;
+	shapes_example = nullptr; //point to nothing (to be on the safe side)
+
+	Shape** shapes2 = new Shape*[SIZE];//pointer that points to a pointer = pointer to shape of size SIZE
+	//Now we can work with different objects
+	shapes2[0] = new Circle();
+	shapes2[1] = new Line();
+	shapes2[2] = new Line();
+
+	shapes2[0]->draw();//working with a pointer on the heap, so need to use ->
+	shapes2[1]->draw();
+	shapes2[2]->draw();
+
+	for(int i=0; i<SIZE; ++i)
+	{
+		delete shapes2[i];
+	}
+
+	delete[] shapes2;
+	shapes2 = nullptr;
+
 	return 0;
 }

@@ -16,6 +16,16 @@ TEST_CASE("Test if array function parameter is value or reference parameter")
 
 }
 
+TEST_CASE("Test if pointer array function parameter is value or reference parameter")
+{
+	const int SIZE = 3;
+	int numbers[SIZE] {4,1,10};
+
+	iterate_array_ptr(numbers, SIZE);
+	REQUIRE(numbers[SIZE - 1] == 1000);//passes, so this means pointer array function parameter is passed by reference.
+
+}
+
 /*TEST_CASE("Test if pointer array function parameter is value or reference parameter")
 {
 	const int SIZE = 3;

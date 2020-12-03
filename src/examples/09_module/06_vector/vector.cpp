@@ -1,10 +1,9 @@
 #include "vector.h"
-#include<iostream>
 
 //
-Vector::Vector(size_t sz) : size{sz}, elements{new int[sz]}
+Vector::Vector(size_t sz) : size{sz}, elements{new int[sz]}//initialize pointer elements (dyanmic array) to a dyanmic array of size sz
 {
-    std::cout<<"Create and init memory\n";
+    std::cout<<"\nCreate and init memory/elements\n";
     for(size_t i=0; i<sz; ++i)
     {
         elements[i] = 0;
@@ -35,17 +34,20 @@ Vector::~Vector()
 }
 
 //FREE FUNCTION - NOT PART OF THE VECTOR CLASS
-void use_stack_vector()
+void use_stack_vector()//we don't have to call delete to release the memory - destructor does that
 {
-    Vector v1(3);
+    Vector v1(3);//recommended way - v1 doesn't take a lot of stack memory and all its data is on the heap
+    //we don't have to remember to call delete when we create v1. We've already set up that construct in the destructor 
     v1[0] = 10;
     std::cout<<v1[0]<<"\n";
     //100 lines of other code
 }
 
 //FREE FUNCTION - NOT PART OF THE VECTOR CLASS
-void use_heap_vector()
+void use_heap_vector()//we have to explicitly call delete to release the memory
 {
+    //create a pointer to Vector - create dynamic memory for this Vector
+    //Here, we're not creating an array of vectors.  So we have to call delete
     Vector* v1 = new Vector(3);//creating dyanmic memory, which means we are taking charge of how to deal with the memory
     //use v1
     //100 lines of other code
