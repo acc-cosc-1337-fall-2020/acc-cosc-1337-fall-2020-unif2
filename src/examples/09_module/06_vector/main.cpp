@@ -5,6 +5,14 @@
 int main()
 {
     /*
+    int num = add(5, 5);
+    std::cout<<num<<"\n";
+
+    double num1 = add(1.5, 4.9);
+    std::cout<<num1<<"\n";
+    */
+
+    /*
     std::cout<<"Before function\n";
     use_stack_vector();//create memory and function exits, but if we don't call delete, memory would still be occupied/in use by our program (memory leak)
     //but if we have a destructor and call delete in the destructor, then memory will get deleted
@@ -15,24 +23,33 @@ int main()
     std::cout<<"Before function\n";
     use_heap_vector();//creates memory but does not release it, unless we call delete in the function ourselves
     std::cout<<"After function\n";
+    */
 
     //Requires copy constructor to work properly.  Otherwise two Vector instances will point to the same memory
     //With the copy constructor, each will point to their own memory.
-    Vector v1(3);
-    Vector v2 = v1;//create new vector from the existing vector
+    Vector<int> v1(3);
+    Vector<int> v2 = v1;//create new vector from the existing vector
+    v1[0] = 5;
 
-    //
-    Vector v3(3);
-    Vector v4(3);
+    std::cout<<v1[0]<<"\n";
+    
+    Vector<double> v3(3);
+    Vector<double> v4(3);
     v4 = v3;
-    */
+    v4[1] = 10;
 
-   /*
+    std::cout<<v4[1]<<"\n";
+
+   
    //requires move constructor
    //copy constructor executes here
-   Vector v(3);
-   Vector v1 = std::move(v);//uses the move constructor, which switches the pointers, and then after
-   //return 0, we release memory from the heap*/
+   Vector<char> v(3);
+   Vector<char> v_m = std::move(v);//uses the move constructor, which switches the pointers, and then after
+   //return 0, we release memory from the heap
+   v_m[0] = 'a';
+   v_m[1] = 'b';
+   std::cout<<v_m[0]<<"\n";
+   std::cout<<v_m[1]<<"\n";
 
     /*
     //no move assignment
@@ -50,6 +67,7 @@ int main()
     //we release memory correctly.  So no unecessary copies.  More efficient.
     */
 
+   /*
    Vector v;
    v.Pushback(4);
 
@@ -57,6 +75,7 @@ int main()
 
    v.Pushback(10);
    std::cout<<v[1]<<"\n";
+   */
 
     return 0;//release memory from the heap
 }
